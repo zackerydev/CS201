@@ -1,10 +1,17 @@
+/* Zackery Griesinger
+CS 201 May Zein el din
+Program 1: Car payments
+01/28/2016
+*/
+
+
 #include <iostream>
-#include <string>
-#include <math.h>
+#include <string> // need strings for cars
+#include <math.h> // Need the math functions for the interest equation
 using namespace std;
 
 
-double get_interest_rate(int score) {
+double get_interest_rate(int score) { // INPUT: Takes the user's credit score OUTPUT: outputs the correct interest rate
     if (score <= 500) {
         return 0.05;
     }
@@ -16,13 +23,13 @@ double get_interest_rate(int score) {
     }
 }
 
-double total_payment(double interest_rate, double price, double down_payment, int years) {
-    double A = (((price - down_payment)*pow((1 + interest_rate), years)) / (12 * years));
+double total_payment(double interest_rate, double price, double down_payment, int years) { // INPUT: Takes interest rate, car price, down payments, and years
+    double A = (((price - down_payment)*pow((1 + interest_rate), years)) / (12 * years)); // OUTPUT: gives the correct monthly payment for all of the data entered
     return A;
 }
 
 
-double Car_Menu() {
+double Car_Menu() { //INPUT: none OUTPUT: Simply gives the user three options for cars to choose and their prices
     double Car1_Price, Car2_Price, Car3_Price;
     string Car1, Car2, Car3;
     Car1 = "Honda Civic";
@@ -52,7 +59,7 @@ double Car_Menu() {
             cout << "You chose the " << Car3 << " For $" << Car3_Price << endl;
             return Car3_Price;
         }
-        else if (cin.fail()) {
+        else if (cin.fail()) { // Handles the user entering something that isn't a integer 
             cout << "Error! Please enter a valid input of 1, 2, or 3!" << endl;
             cin.clear();
             cin.ignore(1000000, '\n');
@@ -67,7 +74,7 @@ int main() {
     while (true) {
         cout << "What is your credit score? " << endl;
         cin >> credit_score;
-        if (cin.fail()) {
+        if (cin.fail()) { // Again handling errors
             cout << "Error! Please enter a valid integer credit score!" << endl;
             cin.clear();
             cin.ignore(100000, '\n');
@@ -88,7 +95,7 @@ int main() {
     while (true) {
         cout << "What is your down payment going to be? " << endl;
         cin >> down_payment;
-        if (cin.fail()) {
+        if (cin.fail()) { // Handles error handling
             cout << "Error! Please enter a valid down payment!" << endl;
             cin.clear();
             cin.ignore(100000, '\n');
@@ -112,7 +119,7 @@ int main() {
     }
     double total = total_payment(interest_rate, cost, down_payment, years);
 
-    cout << total << " is your montly payment" << endl;
+    cout << total << " is your montly payment" << endl; //Gives the user the output for monthly payments
 
 
     return 0;
