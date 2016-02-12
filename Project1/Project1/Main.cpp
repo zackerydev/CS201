@@ -64,6 +64,9 @@ double Car_Menu() { //INPUT: none OUTPUT: Simply gives the user three options fo
             cin.clear();
             cin.ignore(1000000, '\n');
         }
+        else {
+            cout << "Error! Please enter a valid input of 1, 2, or 3!" << endl;
+        }
     }
 }
 
@@ -119,7 +122,7 @@ int main() {
     }
     double total = total_payment(interest_rate, cost, down_payment, years);
 
-    cout << total << " is your montly payment" << endl; //Gives the user the output for monthly payments
+    cout << "You will pay " << total << "$ per month" << endl; //Gives the user the output for monthly payments
 
 
     return 0;
