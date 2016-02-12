@@ -6,7 +6,17 @@
 
 bool TermGrade::ReadData(ifstream& fin, ofstream& fout)
 {
-    
+
+    if (fin.fail())
+    {
+        cout << "The input file failed to open" << endl;
+        return false;
+    }
+    else
+    {
+        fin >> ID >> assignments >> exam1 >> exam2 >> final_grade;
+        return true;
+    }
 }
 /*
 const bool TermGrade::MidsemesterScore()
@@ -38,6 +48,11 @@ const char TermGrade::LetterGrade(double final_grade)
     {
         return 'D';
     }
+}
+
+void TermGrade::OutputTest()
+{
+    cout << ID << " " << assignments << " " << exam1 << " " << exam2 << " " << final_grade << endl;
 }
 
 void TermGrade::SetGrade(double grade)

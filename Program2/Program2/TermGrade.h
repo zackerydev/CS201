@@ -6,6 +6,7 @@ using namespace std;
 
 class TermGrade {
     public:
+        void TermGrade::OutputTest();
         bool ReadData(ifstream& fin, ofstream& fout);
         /*
         const bool MidsemesterScore();
@@ -15,6 +16,7 @@ class TermGrade {
         void SetGrade(double grade);
     private:
         double assignments, exam1, exam2, final_grade;
+        int ID;
 
 
 
