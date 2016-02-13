@@ -7,15 +7,14 @@
 bool TermGrade::ReadData(ifstream& fin, ofstream& fout)
 {
 
-    if (fin.fail())
+    if (fin >> ID)
     {
-        cout << "The input file failed to open" << endl;
-        return false;
+        fin >> assignments >> exam1 >> exam2 >> final_grade;
+        return true;
     }
     else
     {
-        fin >> ID >> assignments >> exam1 >> exam2 >> final_grade;
-        return true;
+        return false;
     }
 }
 /*

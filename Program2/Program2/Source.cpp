@@ -4,18 +4,26 @@
 using namespace std;
 
 int main() {
-    TermGrade students[20];
+    TermGrade students[100];
     ifstream input_file;
     ofstream output_file;
 
     input_file.open("grade1.txt");
     output_file.open("grade_output.txt");
 
-    for (int i = 0; i < 20; i++)
+    if (input_file.fail())
     {
-        students[i].ReadData(input_file, output_file);
-        students[i].OutputTest();
+        cout << "The input file failed to open " << endl;
     }
+
+
+    int idx = 0;
+    while (students[idx].ReadData(input_file, output_file))
+    {
+        students[idx].OutputTest();
+        idx++;
+    }
+
 
 
 
